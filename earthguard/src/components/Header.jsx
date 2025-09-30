@@ -10,11 +10,6 @@ const Header = ({ onLogout }) => {
       </div>
       
       <div className="user-actions">
-        <button className="notifications">
-          <i className="fas fa-bell"></i>
-          <span className="notification-badge">3</span>
-        </button>
-        
         <div className="user-profile">
           <i className="fas fa-user-circle"></i>
           <button onClick={onLogout} className="logout-btn">

@@ -238,14 +238,17 @@
   color: var(--white);
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  cursor: grab;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
   z-index: 1000;
-  user-select: none;
-  touch-action: none;
+}
+
+.ai-bot-button:hover {
+  transform: scale(1.1);
+  background: var(--secondary);
 }
 
 .ai-bot-button:active {
@@ -255,11 +258,6 @@
 
 .ai-bot-button i {
   font-size: 2.5rem;
-}
-
-.ai-bot-button:hover {
-  transform: scale(1.1);
-  background: var(--secondary);
 }
 
 .ai-bot-label {
@@ -345,8 +343,8 @@
     min-height: auto;
   }
 
-  .ai-bot-button {
-    bottom: 1rem;
-    right: 1rem;
-  }
+.ai-bot-button {
+  bottom: 1rem;
+  right: 1rem;
+}
 }

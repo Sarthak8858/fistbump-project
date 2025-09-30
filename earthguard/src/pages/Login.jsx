@@ -14,11 +14,6 @@ const Login = ({ onLogin }) => {
     }
   }
 
-  const handleDemoLogin = () => {
-    setCredentials({ email: 'demo@earthguard.com', password: 'demo123' })
-    onLogin(true)
-  }
-
   return (
     <div className="login-container">
       <div className="login-card">
@@ -57,10 +52,6 @@ const Login = ({ onLogin }) => {
           
           <button type="submit" className="login-btn">
             Sign In
-          </button>
-          
-          <button type="button" onClick={handleDemoLogin} className="demo-btn">
-            Demo Login
           </button>
         </form>
       </div>

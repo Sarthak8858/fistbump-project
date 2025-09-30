@@ -10,13 +10,46 @@ import DropoffCenters from '../components/tabs/DropoffCenters'
 import AskEcoFriend from '../components/AskEcoFriend'
 import './Dashboard.css'
 
+
 const Dashboard = ({ onLogout }) => {
   const [activeSection, setActiveSection] = useState('overview')
   const [isAiChatOpen, setIsAiChatOpen] = useState(false)
-  const botRef = useRef(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 20, y: window.innerHeight - 100 })
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const botRef = useRef(null)
+
+  const handleMouseDown = (e) => {
+    setIsDragging(true)
+    setDragStart({
+      x: e.clientX - position.x,
+      y: e.clientY - position.y
+    })
+  }
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y
+      })
+    }
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove)
+      window.addEventListener('mouseup', handleMouseUp)
+    }
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseup', handleMouseUp)
+    }
+  }, [isDragging, dragStart])
 
   const renderContent = () => {
     switch (activeSection) {
@@ -34,47 +67,6 @@ const Dashboard = ({ onLogout }) => {
         return <Overview onSectionChange={setActiveSection} />
     }
   }
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setDragStart({
-      x: e.clientX - position.x,
-      y: e.clientY - position.y
-    });
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    
-    const newX = e.clientX - dragStart.x;
-    const newY = e.clientY - dragStart.y;
-    
-    // Keep button within viewport bounds
-    const botWidth = botRef.current.offsetWidth;
-    const botHeight = botRef.current.offsetHeight;
-    const maxX = window.innerWidth - botWidth;
-    const maxY = window.innerHeight - botHeight;
-    
-    setPosition({
-      x: Math.min(Math.max(0, newX), maxX),
-      y: Math.min(Math.max(0, newY), maxY)
-    });
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-    }
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-    };
-  }, [isDragging, dragStart]);
 
   return (
     <div className="dashboard-container">
