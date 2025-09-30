@@ -1,0 +1,150 @@
+.disposal-guide {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: none;
+}
+
+.section-header h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.section-header p {
+  color: var(--text);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.waste-category {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.waste-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+}
+
+.category-header i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--light);
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.category-header.recyclable i { color: #27ae60; }
+.category-header.organic i { color: #f39c12; }
+.category-header.hazardous i { color: #e74c3c; }
+.category-header.electronic i { color: #3498db; }
+
+.category-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.category-content {
+  padding: 1.5rem;
+}
+
+.waste-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.waste-items li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 0;
+  color: #34495e;
+  border-bottom: 1px solid #eee;
+}
+
+.waste-items li:last-child {
+  border-bottom: none;
+}
+
+.waste-items li i {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--light);
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.disposal-tip {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.disposal-tip i {
+  color: #f1c40f;
+  font-size: 1rem;
+  margin-top: 2px;
+}
+
+.disposal-tip span {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    padding: 2rem 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .guide-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,375 @@
+.pickup-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.header-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header-section h1 {
+  color: var(--primary);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.header-section p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.form-card,
+.pickups-card,
+.pickup-info-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-card h2,
+.pickups-card h2 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.pickup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.label-icon {
+  font-size: 1.1rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.waste-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.waste-type-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.waste-type-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.waste-type-option.selected {
+  border-color: var(--primary);
+  background: rgba(46, 139, 87, 0.05);
+}
+
+.waste-type-icon {
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(46, 139, 87, 0.1);
+}
+
+.waste-type-info h4 {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.waste-type-info p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.selection-indicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: var(--primary);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.schedule-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.schedule-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+.scheduled-pickups-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.no-pickups {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary);
+}
+
+.no-pickups-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.no-pickups p {
+  margin-bottom: 0.5rem;
+}
+
+.pickups-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.pickup-item {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.pickup-item:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.pickup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.pickup-date-time {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pickup-date {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.pickup-time {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.pickup-status {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid currentColor;
+}
+
+.pickup-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.pickup-address,
+.pickup-types,
+.pickup-instructions {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.detail-icon {
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+}
+
+.types-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.type-tag {
+  background: rgba(46, 139, 87, 0.1);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.pickup-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.cancel-btn {
+  background: none;
+  color: #f44336;
+  border: 1px solid #f44336;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.cancel-btn:hover {
+  background: #f44336;
+  color: var(--white);
+}
+
+.pickup-info-card h3 {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.guidelines-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.guidelines-list li::before {
+  content: "✅";
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pickup-container {
+    padding: 1rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .waste-types-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pickup-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

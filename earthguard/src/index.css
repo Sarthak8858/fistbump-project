@@ -1,0 +1,32 @@
+:root {
+  --primary: #2E8B57;
+  --secondary: #3CB371;
+  --accent: #66CDAA;
+  --dark: #1C5A3E;
+  --light: #F0FFF0;
+  --background: #FAFAFA;
+  --white: #FFFFFF;
+  --text: #2F4F4F;
+  --muted: #708090;
+  --danger: #DC143C;
+  --warning: #FF8C00;
+  --info: #4682B4;
+  --success: #228B22;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+}
