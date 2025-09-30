@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 from . import models, schemas
 from .database import engine, get_db
@@ -13,12 +14,20 @@ from passlib.context import CryptContext
 # Create tables
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI()
+app = FastAPI(
+    title="FistBump Waste Management API",
+    description="API for managing waste records, pickups, and environmental impact tracking",
+    version="1.0.0"
+)
 
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Your React app's address
+    allow_origins=[
+        "http://localhost:5173",
+        "https://fistbump-project.onrender.com",
+        "*"  # Allow all origins for now - tighten this in production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,6 +41,41 @@ async def validation_exception_handler(request, exc):
         status_code=400,
         content={"message": "Invalid data provided", "details": str(exc)},
     )
+
+# Root endpoint
+@app.get("/")
+def read_root():
+    """
+    Welcome endpoint - provides API information and available routes
+    """
+    return {
+        "message": "Welcome to FistBump Waste Management API",
+        "status": "online",
+        "version": "1.0.0",
+        "documentation": {
+            "swagger": "/docs",
+            "redoc": "/redoc"
+        },
+        "endpoints": {
+            "users": "/users/",
+            "waste_records": "/waste-records/",
+            "pickups": "/pickups/",
+            "overview_stats": "/overview/stats",
+            "impact_metrics": "/overview/impact",
+            "health": "/healthz"
+        }
+    }
+
+# Health check endpoint
+@app.get("/healthz")
+def health_check():
+    """
+    Health check endpoint for monitoring
+    """
+    return {
+        "status": "healthy",
+        "timestamp": datetime.now().isoformat()
+    }
 
 @app.post("/users/", response_model=schemas.User)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
